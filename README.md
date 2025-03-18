@@ -18,7 +18,7 @@ The templates assume NPM built app to be available from base URL
 These can be served with tomcat static servlet for dev purposes
 
 ```
-       <Context docBase="${catalina.base}/static" path="static" />
+<Context docBase="${catalina.base}/static" path="static" />
 ```
 
 Static resources directory
