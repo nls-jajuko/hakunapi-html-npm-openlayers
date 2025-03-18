@@ -1,3 +1,4 @@
+Alternate HTML app for hakunapi generated HTML pages.
 
 # templates 
 
