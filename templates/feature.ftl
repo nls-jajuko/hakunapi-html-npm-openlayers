@@ -6,9 +6,7 @@
 <#list links as link>
   <link rel="${link.rel}" type="${link.type}" title="${link.title}" href="${link.href}"/>
 </#list>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <link crossorigin href="../../../static/hakunapi-html/hakunapi-html-map.css" rel="stylesheet">
   <title>${featureType.name} - ${id}</title>
   <style>
   </style>
@@ -21,7 +19,7 @@
         <li class="breadcrumb-item"><a class="d-flex align-items-center text-dark text-decoration-none" href="../../../">Home</a></li>
         <li class="breadcrumb-item"><a class="d-flex align-items-center text-dark text-decoration-none" href="../../../collections">Collections</a></li>
         <li class="breadcrumb-item"><a class="d-flex align-items-center text-dark text-decoration-none" href="../../../collections/${featureType.name}">${(featureType.title)!(featureType.name)}</a></li>
-        <li class="breadcrumb-item"><a class="d-flex align-items-center text-dark text-decoration-none" href="../../../collections/${featureType.name}/items">Items</a></li>
+        <li class="breadcrumb-item"><a class="d-flex align-items-center text-dark text-decoration-none" href="../../../collections/${featureType.name}/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F3067">Items</a></li>
         <li class="breadcrumb-item active" aria-current="page">${id}</li>
       </ol>
       <ul class="nav">
@@ -53,15 +51,15 @@
         <#list properties as key, value>
         <tr>
           <td>${key}</td>
-              <#if value??>
-              <#if value?is_enumerable>
+          <#if value??>
+            <#if value?is_enumerable>
               <td><table><#list value as vv><tr><td>${vv}</td></tr></#list></table></td>
-              <#else>
+            <#else>
               <td>${value!""}</td>
-              </#if>
-              <#else>
-              <td/>
-              </#if>
+            </#if>
+          <#else>
+            <td/>
+          </#if>
         </tr>
         </#list>
       </tbody>
@@ -71,26 +69,26 @@
   </div>
 </main>
 <script>document.getElementById("json-link").href = window.location.search === "" ? "?f=json" : window.location.search + "&f=json"</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<script>
-var map = L.map('map');
-L.tileLayer('https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/taustakartta/default/WGS84_Pseudo-Mercator/{z}/{y}/{x}.png?api-key=7cd2ddae-9f2e-481c-99d0-404e7bc7a0b2', {
-    attribution: '&copy; <a href="https://www.nls.fi">National Land Survey of Finland</a>'
-}).addTo(map);
+<script type="module">
+ import { Mapplet } from "../../../static/hakunapi-html/hakunapi-html-map.es.js";
 
+var data = [
 <#if geometry??>
-var data = {
+{
   "type": "Feature",
   "id": "${id}",
   "geometry": ${geometry}
-};
-var layer = L.geoJSON(data, {
-  onEachFeature: function (feature, layer) {
-    layer.bindPopup(feature.id);
-  }
-}).addTo(map);
-map.fitBounds(layer.getBounds());
+}
 </#if>
+];
+
+    Mapplet.map().then(()=>{
+      Mapplet.data(data);
+      Mapplet.fit();
+    });
+
+
 </script>
 </body>
 </html>
+

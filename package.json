@@ -1,0 +1,36 @@
+{
+  "name": "hakunapi-html-npm-openlayers",
+  "version": "1.1.0",
+  "description": "hakunapi-html-npm-openlayers",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/hakunapi-html-map.umd.js",
+  "module": "./dist/hakunapi-html-map.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/hakunapi-html-map.es.js",
+      "require": "./dist/hakunapi-html-map.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "ol": "10.3.1",
+    "ol-mapbox-style": "12.3.1",
+    "proj4": "^2.15.0",
+    "swagger-ui-dist": "^5.20.1",
+    "webfont-matcher": "^1.1.0"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  },
+  "scarfSettings": {
+    "enabled": false
+  }
+}

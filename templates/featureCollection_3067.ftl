@@ -6,12 +6,9 @@
 <#list links as link>
   <link rel="${link.rel}" type="${link.type}" title="${link.title}" href="${link.href}"/>
 </#list>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-  <script src="https://cdn.jsdelivr.net/npm/proj4@2.7.5/dist/proj4-src.min.js" crossorigin=""/></script>
-  <script src="https://cdn.jsdelivr.net/npm/proj4leaflet@1.0.2/src/proj4leaflet.min.js" crossorigin=""/></script>
+  <link crossorigin href="../../static/hakunapi-html/hakunapi-html-map.css" rel="stylesheet">
   <title>${(featureType.title)!(featureType.name)} - Items</title>
+  <style> .featureById { cursor: pointer;}</style>
 </head>
 <body>
 <main>
@@ -39,7 +36,7 @@
       <h1>${featureType.title!featureType.name}</h1>
       <#if featureType.description??><p>${featureType.description}</p></#if>
       <label for="crs">Switch CRS:</label>
-      <select name="crs" id="crs" onchange="window.location.search = 'crs=' + this.options[this.selectedIndex].value">
+      <select name="crs" id="crs">
         <#list featureType.geom.srid as availableSRID>
         <#if availableSRID == 84>
             <#if srid == 84>
@@ -56,12 +53,10 @@
         </#if>
         </#list>
       </select>
+      <button id="bbox" class="btn btn-primary">Set BBOX from View</button>	
     </header>
     
-    <div id="map" class="border pb-3 mb-3" style="height: 360px;">
-      <div class="leaflet-bottom leaflet-left">
-        <button class="leaflet-control" onClick="bboxToMapBounds()">Set bbox to current view</button>
-      </div>
+    <div id="map" class="map border pb-3 mb-3" style="height: 360px;">
     </div>
     
     <h2>Features</h2>
@@ -77,10 +72,10 @@
             </#list>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="features">
           <#list features as feature>
           <tr>
-            <td><a href="./items/${feature.id}?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F3067" class="text-decoration-none">${feature.id}</a></td>
+            <td><a href="javascript:void(0)" class="featureById" data-feature-id="${feature.id}" class="text-decoration-none">${feature.id}</a></td>
             <#list feature.properties?values as value>
               <#if value??>
               <#if value?is_enumerable>
@@ -90,7 +85,7 @@
               </#if>
               <#else>
               <td/>
-              </#if>
+              </#if> 
             </#list>
           </tr>
           </#list>
@@ -102,7 +97,7 @@
     </#if>
     
     <nav aria-label="Pagination">
-      <#if links??>
+     <#if links??>
       <ul class="pagination">
         <#list links as link>
         <#if link.rel == "prev" && link.type == "text/html">
@@ -122,25 +117,9 @@
   </div>
 </main>
 <script>document.getElementById("json-link").href = window.location.search === "" ? "?f=json" : window.location.search + "&f=json"</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<script>
-var crs = new L.Proj.CRS("EPSG:3067",
-  "+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-  {
-    resolutions: [
-      8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5, 0.25
-    ],
-    origin: [-548576.000000, 8388608.000000]
-  })
 
-var map = L.map('map', {
-    crs: crs
-});
-L.tileLayer('https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/taustakartta/default/ETRS-TM35FIN/{z}/{y}/{x}.png?api-key=7cd2ddae-9f2e-481c-99d0-404e7bc7a0b2', {
-    minZoom: 0,
-    maxZoom: 15,
-    attribution: '&copy; <a href="https://www.nls.fi">National Land Survey of Finland</a>'
-}).addTo(map);
+<script type="module">
+ import { Mapplet } from "../../static/hakunapi-html/hakunapi-html-map.es.js";
 
 var data = [
 <#list features as feature>
@@ -150,62 +129,66 @@ var data = [
   "id": "${feature.id}",
   "geometry": ${feature.geometry}
 },
-<#else>
-{
-  "type": "Feature",
-  "id": "${feature.id}",
-  "geometry": null
-},
 </#if>
 </#list>
 ];
+    const srid = ${srid?c},
+      uri = Mapplet.crs(srid);
 
-var layer = L.geoJSON(data, {
-  coordsToLatLng: function(coords) {
-    var point = L.point(coords[0], coords[1]);
-    return crs.projection.unproject(point);
-  },
-  onEachFeature: function (feature, layer) {
-    layer.bindPopup('<a href="./items/' + feature.id + '?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F3067">' + feature.id + '</a>');
-  }
-}).addTo(map);
+    function links() {
 
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has('bbox')) {
-  const bbox = urlParams.get('bbox');
-  const bboxCrs = urlParams.get('bbox-crs');
-  const parts = bbox.split(",").map(parseFloat);
-  const topL = crs.projection.unproject(L.point(parts[0], parts[1]));
-  const botL = crs.projection.unproject(L.point(parts[2], parts[1]));
-  const topR = crs.projection.unproject(L.point(parts[0], parts[1]));
-  const botR = crs.projection.unproject(L.point(parts[2], parts[3]));
-  const x1 = Math.min(topL.lng, botL.lng);
-  const x2 = Math.max(topR.lng, botR.lng);
-  const y1 = Math.min(botL.lat, botR.lat);
-  const y2 = Math.max(topL.lat, topR.lat);
-  map.fitBounds([
-    [y1, x1],
-    [y2, x2]
-  ]);
-} else {
-  map.fitBounds(layer.getBounds());
-}
+      // links to features with a selection of params (crs)
+      let el = document.getElementsByClassName('features')[0];
+      if(el) {el.addEventListener('click',(e)=>{
+	 if(e.target.dataset.featureId) {
+	    let url = 'items/'+e.target.dataset.featureId+'?crs='+uri;
+	    document.location.href=url;
+	 }
+      });
+      }
 
-function bboxToMapBounds() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const bounds = map.getBounds();
-  const topL = crs.projection.project(bounds.getNorthWest());
-  const botL = crs.projection.project(bounds.getSouthWest());
-  const topR = crs.projection.project(bounds.getNorthEast());
-  const botR = crs.projection.project(bounds.getSouthEast());
-  const x1 = Math.min(topL.x, botL.x);
-  const x2 = Math.max(topR.x, botR.x);
-  const y1 = Math.min(botL.y, botR.y);
-  const y2 = Math.max(topL.y, topR.y);
-  urlParams.set("bbox", x1 + ',' + y1 + ',' + x2 + ',' + y2);
-  urlParams.set("bbox-crs", 'http://www.opengis.net/def/crs/EPSG/0/${srid?c}'); 
-  window.location.search = urlParams.toString();
-}
+      // link to other crs with params and updated crs ?
+      document.getElementById('crs').addEventListener('change',(e)=>{
+	  let selectedCrsURI = e.target.options[e.target.selectedIndex].value,
+	      selectedSrid = Mapplet.srid(selectedCrsURI);
+	  const params = (new URL(document.location)).searchParams;
+	  params.set('crs',selectedCrsURI);
+	  document.location.search = params.toString(); 	 
+	
+      });
+
+       document.getElementById('bbox').addEventListener('click',(e)=>{
+	 let extent = Mapplet.bbox(),
+	     bboxCrs = Mapplet.bboxCrs(),
+	     bbox = extent.join(',');
+	 console.log( extent,bboxCrs,bbox );
+	 const params = (new URL(document.location)).searchParams;
+	 params.set('bbox',bbox);
+	 params.set('bbox-crs',bboxCrs);
+   params.delete('next');
+	 document.location.search = params.toString();
+      });
+    }
+   
+    
+
+    Mapplet.map().then((m)=>{ window.M = m;
+      Mapplet.data(data);
+
+      const params = (new URL(document.location)).searchParams;
+      let bboxParam = params.get('bbox'),	
+	bboxCrs = params.get('bbox-crs'),
+	bbox = bboxParam ? bboxParam.split(',') : null,
+	bboxSrid = bboxCrs ? Mapplet.srid(bboxCrs): 84;
+      Mapplet.fit(bbox,bboxSrid);
+
+      links();
+    });
+
+
+  console.log(srid,uri);
+
+  
 </script>
 </body>
 </html>

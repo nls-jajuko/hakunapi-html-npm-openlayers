@@ -3,15 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- <#if links??> 
-  <#list links as link>
+<#list links as link>
   <link rel="${link.rel}" type="${link.type}" title="${link.title}" href="${link.href}"/>
 </#list>
- </#if>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <link crossorigin href="../../static/hakunapi-html//hakunapi-html-map.css" rel="stylesheet">
   <title>${(featureType.title)!(featureType.name)} - Items</title>
+  <style> .featureById { cursor: pointer;}</style>
 </head>
 <body>
 <main>
@@ -39,7 +36,7 @@
       <h1>${featureType.title!featureType.name}</h1>
       <#if featureType.description??><p>${featureType.description}</p></#if>
       <label for="crs">Switch CRS:</label>
-      <select name="crs" id="crs" onchange="window.location.search = 'crs=' + this.options[this.selectedIndex].value">
+      <select name="crs" id="crs">
         <#list featureType.geom.srid as availableSRID>
         <#if availableSRID == 84>
             <#if srid == 84>
@@ -56,14 +53,12 @@
         </#if>
         </#list>
       </select>
+      <button id="bbox" class="btn btn-primary">Set BBOX from View</button>	
     </header>
     
-    <div id="map" class="border pb-3 mb-3" style="height: 360px;">
-      <div class="leaflet-bottom leaflet-left">
-        <button class="leaflet-control" onClick="bboxToMapBounds()">Set bbox to current view</button>
-      </div>
+    <div id="map" class="map border pb-3 mb-3" style="height: 360px;">
     </div>
-
+    
     <h2>Features</h2>
     <#if features?has_content>
     <div class="table-responsive">
@@ -77,10 +72,10 @@
             </#list>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="features">
           <#list features as feature>
           <tr>
-            <td><a id="feature-link-${feature.id}" class="text-decoration-none">${feature.id}</a></td>
+            <td><a href="javascript:void(0)" class="featureById" data-feature-id="${feature.id}" class="text-decoration-none">${feature.id}</a></td>
             <#list feature.properties?values as value>
               <#if value??>
               <#if value?is_enumerable>
@@ -91,6 +86,7 @@
               <#else>
               <td/>
               </#if>
+ 
             </#list>
           </tr>
           </#list>
@@ -102,7 +98,7 @@
     </#if>
     
     <nav aria-label="Pagination">
-      <#if links??>
+     <#if links??>
       <ul class="pagination">
         <#list links as link>
         <#if link.rel == "prev" && link.type == "text/html">
@@ -115,19 +111,16 @@
         </#if>
         </#list>
       </ul>
-       </#if>
+      </#if>
     </nav>
 
     <footer class="pt-3 mt-4 text-muted border-top">Powered by hakunapi</footer>
   </div>
 </main>
 <script>document.getElementById("json-link").href = window.location.search === "" ? "?f=json" : window.location.search + "&f=json"</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<script>
-var map = L.map('map');
-L.tileLayer('https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/taustakartta/default/WGS84_Pseudo-Mercator/{z}/{y}/{x}.png?api-key=7cd2ddae-9f2e-481c-99d0-404e7bc7a0b2', {
-    attribution: '&copy; <a href="https://www.nls.fi">National Land Survey of Finland</a>'
-}).addTo(map);
+
+<script type="module">
+ import { Mapplet } from "../../static/hakunapi-html/hakunapi-html-map.es.js";
 
 var data = [
 <#list features as feature>
@@ -137,51 +130,66 @@ var data = [
   "id": "${feature.id}",
   "geometry": ${feature.geometry}
 },
-<#else>
-{
-  "type": "Feature",
-  "id": "${feature.id}",
-  "geometry": null
-},
 </#if>
 </#list>
 ];
+    const srid = ${srid?c},
+      uri = Mapplet.crs(srid);
 
-const singleFeatureLinkParams = new URLSearchParams(window.location.search);
-// todo: refactor 
-singleFeatureLinkParams.delete("bbox");
-singleFeatureLinkParams.delete("bbox-crs");
-singleFeatureLinkParams.delete("filter");
-singleFeatureLinkParams.delete("filter-crs");
-singleFeatureLinkParams.delete("next");
-singleFeatureLinkParams.delete("limit");
-const singleFeatureLinkQuery = singleFeatureLinkParams.size === 0 ? "" : "?" + singleFeatureLinkParams.toString();
+    function links() {
 
-data.forEach(f => document.getElementById("feature-link-" + f.id).href = "items/" + f.id + singleFeatureLinkQuery);
+      // links to features with a selection of params (crs)
+      let el = document.getElementsByClassName('features')[0];
+      if(el) {el.addEventListener('click',(e)=>{
+	 if(e.target.dataset.featureId) {
+	    let url = 'items/'+e.target.dataset.featureId+'?crs='+uri;
+	    document.location.href=url;
+	 }
+      });
+      }
 
-var layer = L.geoJSON(data, {
-  onEachFeature: function (feature, layer) {
-    layer.bindPopup('<a href="./items/' + feature.id + singleFeatureLinkQuery + '">' + feature.id + '</a>');
-  }
-}).addTo(map);
+      // link to other crs with params and updated crs ?
+      document.getElementById('crs').addEventListener('change',(e)=>{
+	  let selectedCrsURI = e.target.options[e.target.selectedIndex].value,
+	      selectedSrid = Mapplet.srid(selectedCrsURI);
+	  const params = (new URL(document.location)).searchParams;
+	  params.set('crs',selectedCrsURI);
+	  document.location.search = params.toString(); 	 
+	
+      });
 
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has('bbox')) {
-  var bbox = urlParams.get('bbox');
-  var parts = bbox.split(",");
-  map.fitBounds([
-    [parts[1], parts[0]],
-    [parts[3], parts[2]]
-  ]);
-} else {
-  map.fitBounds(layer.getBounds());
-}
+       document.getElementById('bbox').addEventListener('click',(e)=>{
+	 let extent = Mapplet.bbox(),
+	     bboxCrs = Mapplet.bboxCrs(),
+	     bbox = extent.join(',');
+	 console.log( extent,bboxCrs,bbox );
+	 const params = (new URL(document.location)).searchParams;
+	 params.set('bbox',bbox);
+	 params.set('bbox-crs',bboxCrs);
+   params.delete('next');
+	 document.location.search = params.toString();
+      });
+    }
+   
+    
 
-function bboxToMapBounds() {
-  const urlParams = new URLSearchParams(window.location.search);
-  urlParams.set("bbox", map.getBounds().toBBoxString());
-  window.location.search = urlParams.toString();
-}
+    Mapplet.map().then((m)=>{ window.M = m;
+      Mapplet.data(data);
+
+      const params = (new URL(document.location)).searchParams;
+      let bboxParam = params.get('bbox'),	
+	bboxCrs = params.get('bbox-crs'),
+	bbox = bboxParam ? bboxParam.split(',') : null,
+	bboxSrid = bboxCrs ? Mapplet.srid(bboxCrs): 84;
+      Mapplet.fit(bbox,bboxSrid);
+
+      links();
+    });
+
+
+  console.log(srid,uri);
+
+  
 </script>
 </body>
 </html>

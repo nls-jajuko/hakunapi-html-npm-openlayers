@@ -1,0 +1,322 @@
+{
+    "84": {
+        "authority": "CRS",
+        "srid": 84,
+        "code": "CRS:84",
+        "name": "WGS 84",
+        "proj4def": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "bbox": [
+            -180,
+            -90,
+            180,
+            90
+        ],
+        "uri": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+        "viewSrid": 3857,
+        "tileMatrixSet": "WGS84_Pseudo-Mercator"
+    },
+    "3046": {
+        "authority": "EPSG",
+        "srid": 3046,
+        "code": "EPSG:3046",
+        "name": "ETRS89 / UTM zone 34N (N-E)",
+        "proj4def": "PROJCS[\"ETRS89 / UTM zone 34N (N-E)\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",21],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3046\"]]",
+        "bbox": [
+            18,
+            33.59,
+            24.01,
+            84.01
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3046",
+        "viewSrid": 3046,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3047": {
+        "authority": "EPSG",
+        "srid": 3047,
+        "code": "EPSG:3047",
+        "name": "ETRS89 / UTM zone 35N (N-E)",
+        "proj4def": "PROJCS[\"ETRS89 / UTM zone 35N (N-E)\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",27],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3047\"]]",
+        "bbox": [
+            24,
+            33.26,
+            30.01,
+            84.01
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3047",
+        "viewSrid": 3047,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3048": {
+        "authority": "EPSG",
+        "srid": 3048,
+        "code": "EPSG:3048",
+        "name": "ETRS89 / UTM zone 36N (N-E)",
+        "proj4def": "PROJCS[\"ETRS89 / UTM zone 36N (N-E)\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",33],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3048\"]]",
+        "bbox": [
+            30,
+            33.91,
+            36.01,
+            84.01
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3048",
+        "viewSrid": 3048,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3067": {
+        "authority": "EPSG",
+        "srid": 3067,
+        "code": "EPSG:3067",
+        "name": "ETRS89 / TM35FIN(E,N)",
+        "proj4def": "PROJCS[\"ETRS89 / TM35FIN(E,N)\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",27],PARAMETER[\"scale_factor\",0.9996],PARAMETER[\"false_easting\",500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"3067\"]]",
+        "bbox": [
+            19.08,
+            58.84,
+            31.59,
+            70.09
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3067",
+        "viewSrid": 3067,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3857": {
+        "authority": "EPSG",
+        "srid": 3857,
+        "code": "EPSG:3857",
+        "name": "WGS 84 / Pseudo-Mercator",
+        "proj4def": "PROJCS[\"WGS 84 / Pseudo-Mercator\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Mercator_1SP\"],PARAMETER[\"central_meridian\",0],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],EXTENSION[\"PROJ4\",\"+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs\"],AUTHORITY[\"EPSG\",\"3857\"]]",
+        "bbox": [
+            -180,
+            -85.06,
+            180,
+            85.06
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3857",
+        "viewSrid": 3857,
+        "tileMatrixSet": "WGS84_Pseudo-Mercator"
+    },
+    "3873": {
+        "authority": "EPSG",
+        "srid": 3873,
+        "code": "EPSG:3873",
+        "name": "ETRS89 / GK19FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK19FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",19],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",19500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3873\"]]",
+        "bbox": [
+            19.24,
+            60.08,
+            19.5,
+            60.34
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3873",
+        "viewSrid": 3873,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3874": {
+        "authority": "EPSG",
+        "srid": 3874,
+        "code": "EPSG:3874",
+        "name": "ETRS89 / GK20FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK20FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",20],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",20500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3874\"]]",
+        "bbox": [
+            19.5,
+            59.92,
+            20.5,
+            60.48
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3874",
+        "viewSrid": 3874,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3875": {
+        "authority": "EPSG",
+        "srid": 3875,
+        "code": "EPSG:3875",
+        "name": "ETRS89 / GK21FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK21FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",21],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",21500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3875\"]]",
+        "bbox": [
+            20.5,
+            59.84,
+            21.5,
+            69.33
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3875",
+        "viewSrid": 3875,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3876": {
+        "authority": "EPSG",
+        "srid": 3876,
+        "code": "EPSG:3876",
+        "name": "ETRS89 / GK22FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK22FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",22],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",22500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3876\"]]",
+        "bbox": [
+            21.5,
+            59.76,
+            22.5,
+            69.31
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3876",
+        "viewSrid": 3876,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3877": {
+        "authority": "EPSG",
+        "srid": 3877,
+        "code": "EPSG:3877",
+        "name": "ETRS89 / GK23FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK23FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",23],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",23500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3877\"]]",
+        "bbox": [
+            22.5,
+            59.75,
+            23.5,
+            68.74
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3877",
+        "viewSrid": 3877,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3878": {
+        "authority": "EPSG",
+        "srid": 3878,
+        "code": "EPSG:3878",
+        "name": "ETRS89 / GK24FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK24FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",24],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",24500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3878\"]]",
+        "bbox": [
+            23.5,
+            59.86,
+            24.5,
+            68.84
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3878",
+        "viewSrid": 3878,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3879": {
+        "authority": "EPSG",
+        "srid": 3879,
+        "code": "EPSG:3879",
+        "name": "ETRS89 / GK25FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK25FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",25],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",25500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3879\"]]",
+        "bbox": [
+            24.5,
+            59.94,
+            25.5,
+            68.9
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3879",
+        "viewSrid": 3879,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3880": {
+        "authority": "EPSG",
+        "srid": 3880,
+        "code": "EPSG:3880",
+        "name": "ETRS89 / GK26FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK26FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",26],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",26500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3880\"]]",
+        "bbox": [
+            25.5,
+            60.18,
+            26.5,
+            69.94
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3880",
+        "viewSrid": 3880,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3881": {
+        "authority": "EPSG",
+        "srid": 3881,
+        "code": "EPSG:3881",
+        "name": "ETRS89 / GK27FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK27FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",27],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",27500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3881\"]]",
+        "bbox": [
+            26.5,
+            60.36,
+            27.5,
+            70.05
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3881",
+        "viewSrid": 3881,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3882": {
+        "authority": "EPSG",
+        "srid": 3882,
+        "code": "EPSG:3882",
+        "name": "ETRS89 / GK28FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK28FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",28],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",28500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3882\"]]",
+        "bbox": [
+            27.5,
+            60.42,
+            28.5,
+            70.09
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3882",
+        "viewSrid": 3882,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3883": {
+        "authority": "EPSG",
+        "srid": 3883,
+        "code": "EPSG:3883",
+        "name": "ETRS89 / GK29FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK29FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",29],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",29500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3883\"]]",
+        "bbox": [
+            28.5,
+            60.94,
+            29.5,
+            69.81
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3883",
+        "viewSrid": 3883,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3884": {
+        "authority": "EPSG",
+        "srid": 3884,
+        "code": "EPSG:3884",
+        "name": "ETRS89 / GK30FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK30FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",30],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",30500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3884\"]]",
+        "bbox": [
+            29.5,
+            61.43,
+            30.5,
+            67.98
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3884",
+        "viewSrid": 3884,
+        "tileMatrixSet": "ETRS-TM35FIN"
+    },
+    "3885": {
+        "authority": "EPSG",
+        "srid": 3885,
+        "code": "EPSG:3885",
+        "name": "ETRS89 / GK31FIN",
+        "proj4def": "PROJCS[\"ETRS89 / GK31FIN\",GEOGCS[\"ETRS89\",DATUM[\"European_Terrestrial_Reference_System_1989\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4258\"]],PROJECTION[\"Transverse_Mercator\"],PARAMETER[\"latitude_of_origin\",0],PARAMETER[\"central_meridian\",31],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",31500000],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AUTHORITY[\"EPSG\",\"3885\"]]",
+        "bbox": [
+            30.5,
+            62.08,
+            31.59,
+            64.27
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/3885",
+        "viewSrid": 3885,
+        "tileMatrixSet": "WGS84_Pseudo-Mercator"
+    },
+    "4326": {
+        "authority": "EPSG",
+        "srid": 4326,
+        "code": "EPSG:4326",
+        "name": "WGS 84",
+        "proj4def": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]]",
+        "bbox": [
+            -180,
+            -90,
+            180,
+            90
+        ],
+        "uri": "http://www.opengis.net/def/crs/EPSG/0/4326",
+        "viewSrid": 3857,
+        "tileMatrixSet": "WGS84_Pseudo-Mercator"
+    }
+}
