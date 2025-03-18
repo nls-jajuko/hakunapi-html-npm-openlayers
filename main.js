@@ -39,7 +39,7 @@ document.lang = webLang[lang];
 const locale = texts[lang];
 
 const layerId = 'taustakartta';
-const apiKey = '7cd2ddae-9f2e-481c-99d0-404e7bc7a0b2';
+const apiKey = '<INSERT-YOUR-API-KEY>';
 const wmtsUrl = `https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/WMTSCapabilities.xml?api-key=${apiKey}`;
 
 const funcs = {
