@@ -38,6 +38,7 @@ const params = (new URL(document.location)).searchParams,
 document.lang = webLang[lang];
 const locale = texts[lang];
 
+// from config?  should just use a tile template without capabilities
 const layerId = 'taustakartta';
 const apiKey = '<INSERT-YOUR-API-KEY>';
 const wmtsUrl = `https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/WMTSCapabilities.xml?api-key=${apiKey}`;
