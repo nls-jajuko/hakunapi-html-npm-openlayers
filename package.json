@@ -1,7 +1,11 @@
 {
-  "name": "hakunapi-html-npm-openlayers",
+  "name": "@nls-jajuko/hakunapi-html-npm-openlayers",
   "version": "1.1.0",
   "description": "hakunapi-html-npm-openlayers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nls-jajuko/hakunapi-html-npm-openlayers.git"
+  },
   "files": [
     "dist"
   ],
