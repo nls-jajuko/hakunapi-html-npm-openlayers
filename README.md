@@ -1,5 +1,13 @@
 Alternate HTML app for hakunapi generated HTML pages.
 
+# library
+CI build and publish - seems to publish as private or restricted package atm
+
+```
+npm i
+npm run build
+```
+
 # templates 
 
 hakunapi properties
